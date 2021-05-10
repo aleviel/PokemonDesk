@@ -1,0 +1,37 @@
+{
+  "name": "pokemon-desc",
+  "version": "1.0.0",
+  "description": "app about pokemons",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+    "start": "env NODE_ENV=development webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleviel/PokemonDesk.git"
+  },
+  "author": "Alex R.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleviel/PokemonDesk/issues"
+  },
+  "homepage": "https://github.com/aleviel/PokemonDesk#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "sass": "^1.32.12",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.2.0",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
