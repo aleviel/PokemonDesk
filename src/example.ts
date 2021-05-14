@@ -66,7 +66,7 @@ concat('Hello ', 'World'); // -> Hello World;
 interface Task {
     howIDoIt: string;
     someArray: Array<number | string>;
-    withData: Array<object>;
+    withData?: Array<Task>;
 }
 
 const myHometask: Task = {

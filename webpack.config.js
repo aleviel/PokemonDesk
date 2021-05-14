@@ -23,14 +23,9 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.module[s]?\.scss$/,
+        test: /\.(s*)css$/,
         use: [
           "style-loader",
-          "css-modules-typescript-loader?modules",
           {
             loader: "css-loader",
             options: {
