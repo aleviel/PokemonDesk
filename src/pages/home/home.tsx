@@ -5,6 +5,7 @@ import Button from '../../components/button';
 import Parallax from '../../components/parallax/parallax';
 
 import Style from './home.module.scss';
+import Heading from '../../components/heading';
 
 const HomePage = () => {
     return (
@@ -28,6 +29,10 @@ const HomePage = () => {
                 </div>
                 <Parallax />
             </Layout>
+            <Heading tag="h1"> h1 </Heading>
+            <Heading tag="h4"> h4 </Heading>
+            <Heading tag="h6"> h6 </Heading>
+            <Heading> default </Heading>
         </div>
     );
 };
