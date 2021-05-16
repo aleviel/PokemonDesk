@@ -19,6 +19,12 @@ const HomePage = () => {
                         You can know the type of Pokemon, its strengths, disadvantages and abilities
                     </p>
                     <Button onClick={() => {}}>See Pokemons</Button>
+                    <Button onClick={() => {}} color="yellow" size="small">
+                        small
+                    </Button>
+                    <Button onClick={() => {}} color="darkred" size="wide">
+                        Wide Btn
+                    </Button>
                 </div>
                 <Parallax />
             </Layout>
