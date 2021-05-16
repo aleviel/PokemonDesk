@@ -15,7 +15,8 @@ const Parallax = () => {
         setCoords({ X: screenX, Y: screenY });
     };
 
-    const translateFunc = (coefficient: number) => `translate(${coords.X * coefficient}%, ${coords.Y * coefficient}%)`;
+    const translateFunc = (coefficient: number): string =>
+        `translate(${coords.X * coefficient}%, ${coords.Y * coefficient}%)`;
 
     useEffect(() => {
         window.addEventListener('mousemove', handleMouseMove);
