@@ -1,0 +1,24 @@
+@import '../../vars';
+
+.root {
+    min-height: 100vh;
+    background: linear-gradient(180deg, $Third 0%, $Primary 100%);
+    overflow: hidden;
+}
+
+.contentText {
+    width: 100%;
+    max-width: 45%;
+}
+
+.contentWrap {
+    height: calc(100vh - 93px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text {
+    font-size: 36px;
+    line-height: 42px;
+}
