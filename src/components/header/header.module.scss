@@ -1,0 +1,64 @@
+@import '../../vars';
+
+.root {
+    height: 93px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1125px;
+    height: 63px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo {
+    width: 158px;
+    height: 63px;
+}
+
+.header_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    text-decoration: none;
+}
+
+.menuLink {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 29px;
+    color: $Dark;
+    text-decoration: none;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 1%;
+        height: 1px;
+        opacity: 0;
+        background: $Dark;
+        border: 1px solid $Dark;
+        border-radius: 6px;
+        transition: width ease-in-out 0.35s;
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+}

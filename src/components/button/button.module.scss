@@ -1,0 +1,39 @@
+@import '../../vars';
+
+.root {
+    background: $Green;
+    box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 66px;
+    padding: 0 20px 9px;
+    cursor: pointer;
+    outline: 0;
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+    color: $Dark;
+
+    &:active {
+        box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
+        padding: 0 20px 6px;
+    }
+}
+
+.small {
+    width: 140px;
+    height: 40px;
+    font-size: 17px;
+}
+
+.wide {
+    width: 100%;
+}
+
+.yellow {
+    background: $Primary;
+}
