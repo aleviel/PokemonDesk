@@ -5,15 +5,14 @@ import Style from './button.module.scss';
 
 interface IButtonProps {
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    size?: string | null;
-    color?: string | null;
+    size?: 'small' | 'wide';
+    color?: 'green' | 'yellow';
 }
 
-const Button: React.FC<IButtonProps> = ({ children, onClick, color = null, size = null }) => {
+const Button: React.FC<IButtonProps> = ({ children, onClick, color, size }) => {
     return (
         <button
-            className={CN(Style.root, Style[size as keyof typeof Style])}
-            style={{ backgroundColor: `${color}` }}
+            className={CN(Style.root, Style[size as keyof typeof Style], Style[color as keyof typeof Style])}
             type="button"
             onClick={onClick}>
             {children}

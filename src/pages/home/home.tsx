@@ -23,7 +23,7 @@ const HomePage = () => {
                     <Button onClick={() => {}} color="yellow" size="small">
                         small
                     </Button>
-                    <Button onClick={() => {}} color="darkred" size="wide">
+                    <Button onClick={() => {}} color="green" size="wide">
                         Wide Btn
                     </Button>
                 </div>
