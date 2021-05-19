@@ -1,4 +1,5 @@
 import React from 'react';
+import CN from 'classnames';
 
 import Styles from './pokemonCard.module.scss';
 
@@ -28,12 +29,12 @@ const PokemonCard: React.FC<IPokemon> = ({ name, attack, defense, img, types }) 
                 <div className={Styles.labelWrap}>
                     {types.map((el) => (
                         <span key={el} className={Styles.label}>
-                            el{' '}
+                            el
                         </span>
                     ))}
                 </div>
             </div>
-            <div className={Styles.pictureWrap}>
+            <div className={CN(Styles.pictureWrap, Styles[`colorWrap_${types[0]}`])}>
                 <img src={img} alt={name} />
             </div>
         </div>

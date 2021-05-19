@@ -1,3 +1,5 @@
+@import '../../vars';
+
 .root {
     width: 351px;
     height: 136px;
@@ -77,6 +79,80 @@
 
     img {
         width: 80%;
+    }
+}
+
+.colorWrap {
+    &_bug {
+        background: linear-gradient(270deg, #9fbb23 0.15%, #9cb820 100%);
+    }
+
+    &_dark {
+        background: linear-gradient(270deg, #726861 0.15%, #7d726b 100%);
+    }
+
+    &_dragon {
+        background: linear-gradient(270deg, #a081ec 0.15%, #ad8cff 100%);
+    }
+
+    &_electric {
+        background: linear-gradient(270deg, #f2cb07 0.15%, $Primary 100%);
+    }
+
+    &_fairy {
+        background: linear-gradient(270deg, #f89eae 0.15%, #f4b5c1 100%);
+    }
+
+    &_fighting {
+        background: linear-gradient(270deg, #d44b44 0.15%, #e25149 100%);
+    }
+
+    &_fire {
+        background: linear-gradient(270deg, #b33327 0.15%, $Danger 100%);
+    }
+
+    &_flying {
+        background: linear-gradient(270deg, #969cf1 0.15%, #9096f0 100%);
+    }
+
+    &_ghost {
+        background: linear-gradient(270deg, #9175bd 0.15%, #9a7dca 100%);
+    }
+
+    &_grass {
+        background: linear-gradient(270deg, #67d36b 0.15%, #64d368 100%);
+    }
+
+    &_ground {
+        background: linear-gradient(270deg, #c8a35c 0.15%, #e0b668 100%);
+    }
+
+    &_ice {
+        background: linear-gradient(270deg, #8cc7c7 0.15%, #98d8d8 100%);
+    }
+
+    &_normal {
+        background: linear-gradient(270deg, #999999 0.15%, #a8a8a8 100%);
+    }
+
+    &_poison {
+        background: linear-gradient(270deg, #df7edf 0.15%, #d876d8 100%);
+    }
+
+    &_psychic {
+        background: linear-gradient(270deg, #e9527f 0.15%, #f85888 100%);
+    }
+
+    &_rock {
+        background: linear-gradient(270deg, #a89333 0.15%, #b8a038 100%);
+    }
+
+    &_steel {
+        background: linear-gradient(270deg, #658490 0.15%, #6d8f9c 100%);
+    }
+
+    &_water {
+        background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
     }
 }
 
