@@ -1,7 +1,7 @@
 @import '../../vars';
 
 .root {
-    min-height: 100vh;
+    min-height: calc(100vh - 93px);
     background: linear-gradient(180deg, $Third 0%, $Primary 100%);
     overflow: hidden;
 }
@@ -20,4 +20,8 @@
 .text {
     font-size: 36px;
     line-height: 42px;
+}
+
+.title {
+    font-weight: 400;
 }
