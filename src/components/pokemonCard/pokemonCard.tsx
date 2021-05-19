@@ -2,30 +2,39 @@ import React from 'react';
 
 import Styles from './pokemonCard.module.scss';
 
-const PokemonCard = () => {
+interface IPokemon {
+    name: string;
+    attack: number;
+    defense: number;
+    img: string;
+    types: Array<string>;
+}
+
+const PokemonCard: React.FC<IPokemon> = ({ name, attack, defense, img, types }) => {
     return (
         <div className={Styles.root}>
             <div className={Styles.infoWrap}>
-                <h1 className={Styles.titleName}>Charmander</h1>
+                <h1 className={Styles.titleName}>{name}</h1>
                 <div className={Styles.statWrap}>
                     <div className={Styles.statItem}>
-                        <div className={Styles.statValue}>52</div>
+                        <div className={Styles.statValue}>{attack}</div>
                         Attack
                     </div>
                     <div className={Styles.statItem}>
-                        <div className={Styles.statValue}>43</div>
+                        <div className={Styles.statValue}>{defense}</div>
                         Defense
                     </div>
                 </div>
                 <div className={Styles.labelWrap}>
-                    <span className={Styles.label}>Fire</span>
+                    {types.map((el) => (
+                        <span key={el} className={Styles.label}>
+                            el{' '}
+                        </span>
+                    ))}
                 </div>
             </div>
             <div className={Styles.pictureWrap}>
-                <img
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                    alt="Charmander"
-                />
+                <img src={img} alt={name} />
             </div>
         </div>
     );

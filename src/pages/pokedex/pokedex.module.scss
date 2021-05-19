@@ -1,0 +1,23 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 1066px;
+    height: 200px;
+    color: red;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 35px;
+    line-height: 41px;
+    letter-spacing: 3px;
+}
