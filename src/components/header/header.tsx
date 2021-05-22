@@ -1,51 +1,29 @@
 import React from 'react';
+import { A, usePath } from 'hookrouter';
+import CN from 'classnames';
 
+import { GENERAL_MENU } from '../../routes';
 import { ReactComponent as HeaderLogoSvg } from './assets/logo.svg';
 
 import Style from './header.module.scss';
 
-interface IMenu {
-    id: number;
-    title: string;
-    link: string;
-}
-
-const Links: IMenu[] = [
-    {
-        id: 1,
-        title: 'Home',
-        link: '#',
-    },
-    {
-        id: 2,
-        title: 'Pokédex',
-        link: '#',
-    },
-    {
-        id: 3,
-        title: 'Legendaries',
-        link: '#',
-    },
-    {
-        id: 4,
-        title: 'Documentation',
-        link: '#',
-    },
-];
-
 const Header = () => {
+    const path = usePath();
     return (
-        <div className={Style.root}>
+        <div className={CN(Style.root)}>
             <div className={Style.wrap}>
                 <div className={Style.header_logo}>
                     <HeaderLogoSvg />
                 </div>
                 <div className={Style.header_menu}>
-                    {Links.map(({ id, title, link }) => {
+                    {GENERAL_MENU.map(({ title, link }) => {
                         return (
-                            <a className={Style.menuLink} key={id} href={link}>
+                            <A
+                                className={CN(Style.menuLink, { [Style.activeLink]: link === path })}
+                                key={title}
+                                href={link}>
                                 {title}
-                            </a>
+                            </A>
                         );
                     })}
                 </div>

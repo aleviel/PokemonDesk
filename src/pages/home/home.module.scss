@@ -1,14 +1,11 @@
 @import '../../vars';
 
 .root {
-    min-height: 100vh;
+    min-height: calc(100vh - 93px);
     background: linear-gradient(180deg, $Third 0%, $Primary 100%);
     overflow: hidden;
-}
-
-.contentText {
-    width: 100%;
-    max-width: 45%;
+    display: flex;
+    align-items: center;
 }
 
 .contentWrap {
@@ -17,7 +14,16 @@
     align-items: flex-start;
 }
 
+.contentText {
+    width: 100%;
+    max-width: 45%;
+}
+
 .text {
     font-size: 36px;
     line-height: 42px;
+}
+
+.title {
+    font-weight: 400;
 }
