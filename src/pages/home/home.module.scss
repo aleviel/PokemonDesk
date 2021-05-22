@@ -4,17 +4,19 @@
     min-height: calc(100vh - 93px);
     background: linear-gradient(180deg, $Third 0%, $Primary 100%);
     overflow: hidden;
-}
-
-.contentText {
-    width: 100%;
-    max-width: 45%;
+    display: flex;
+    align-items: center;
 }
 
 .contentWrap {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.contentText {
+    width: 100%;
+    max-width: 45%;
 }
 
 .text {

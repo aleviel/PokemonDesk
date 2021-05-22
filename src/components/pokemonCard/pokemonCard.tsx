@@ -2,6 +2,7 @@ import React from 'react';
 import CN from 'classnames';
 
 import Styles from './pokemonCard.module.scss';
+import Heading from '../heading';
 
 interface IPokemon {
     name: string;
@@ -15,7 +16,9 @@ const PokemonCard: React.FC<IPokemon> = ({ name, attack, defense, img, types }) 
     return (
         <div className={Styles.root}>
             <div className={Styles.infoWrap}>
-                <h1 className={Styles.titleName}>{name}</h1>
+                <Heading tag="h5" classname={Styles.titleName}>
+                    {name}
+                </Heading>
                 <div className={Styles.statWrap}>
                     <div className={Styles.statItem}>
                         <div className={Styles.statValue}>{attack}</div>
@@ -28,8 +31,8 @@ const PokemonCard: React.FC<IPokemon> = ({ name, attack, defense, img, types }) 
                 </div>
                 <div className={Styles.labelWrap}>
                     {types.map((el) => (
-                        <span key={el} className={Styles.label}>
-                            el
+                        <span key={el} className={CN(Styles.label, Styles[`colorWrap_${el}`])}>
+                            {el}
                         </span>
                     ))}
                 </div>

@@ -255,9 +255,9 @@ const Pokedex = () => {
                 </Heading>
                 <Search />
                 <div className={Styles.wrapper}>
-                    {pokemons.map(({ name, stats, img, types }) => (
+                    {pokemons.map(({ name, stats, img, types, id }) => (
                         <PokemonCard
-                            key={name}
+                            key={id}
                             name={name}
                             attack={stats.attack}
                             defense={stats.defense}

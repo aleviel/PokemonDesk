@@ -4,17 +4,15 @@ import { routes } from '../../routes';
 import Header from '../header';
 import NotFound from '../notfound';
 
-import Styles from './app.module.scss';
-
 const App = () => {
-    const match = useRoutes(routes) || <NotFound />;
-    return (
+    const match = useRoutes(routes);
+    return match ? (
         <>
-            <div className={Styles.root}>
-                <Header />
-                {match}
-            </div>
+            <Header />
+            {match}
         </>
+    ) : (
+        <NotFound />
     );
 };
 export default App;
