@@ -1,8 +1,8 @@
 import React from 'react';
 import CN from 'classnames';
+import Heading from '../heading';
 
 import Styles from './pokemonCard.module.scss';
-import Heading from '../heading';
 
 interface IPokemon {
     name: string;
