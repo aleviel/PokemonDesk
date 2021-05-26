@@ -8,6 +8,7 @@ import useData from '../../hook/getData';
 
 import Styles from './pokedex.module.scss';
 import useDebounce from '../../hook/useDebounce';
+import Search from '../../components/search';
 
 interface IStats {
     hp: number;
@@ -61,30 +62,20 @@ const Pokedex = () => {
         return <Error />;
     }
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(event.target.value);
+    const handleOnChange = (valueFromInput: string) => {
+        setSearchValue(valueFromInput);
         setQuery((prevState) => ({
             ...prevState,
-            name: event.target.value,
+            name: valueFromInput,
         }));
     };
-
     return (
         <>
             <Layout className={Styles.root}>
                 <Heading tag="h1" className={Styles.title}>
                     {data && data.total} Pokemons for you to choose your favorite
                 </Heading>
-                <div>
-                    <input
-                        className={Styles.input}
-                        type="text"
-                        name="search"
-                        id="search"
-                        onChange={handleOnChange}
-                        value={searchValue}
-                    />
-                </div>
+                <Search searchFunc={handleOnChange} value={searchValue} />
                 <div className={Styles.wrapper}>
                     {data &&
                         data.pokemons.map(({ name, stats, img, types, id }) => (

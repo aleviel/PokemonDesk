@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CN from 'classnames';
 
 import Styles from './search.module.scss';
 
 interface ISearch {
     classname?: string;
+    searchFunc: (T: string) => void;
+    value: string;
 }
 
-const Search: React.FC<ISearch> = (classname) => {
-    const [searchValue, setSearchValue] = useState('');
-
-    const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(event.target.value);
+const Search: React.FC<ISearch> = ({ classname, searchFunc, value }) => {
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        searchFunc && searchFunc(event.target.value);
     };
 
     return (
@@ -22,8 +22,8 @@ const Search: React.FC<ISearch> = (classname) => {
                 name="searchInput"
                 id="searchInput"
                 placeholder="Encuentra tu pokémon..."
-                value={searchValue}
-                onChange={onSearchChange}
+                onChange={handleOnChange}
+                value={value}
             />
         </div>
     );
