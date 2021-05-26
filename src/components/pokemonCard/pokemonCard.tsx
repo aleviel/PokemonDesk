@@ -16,7 +16,7 @@ const PokemonCard: React.FC<IPokemon> = ({ name, attack, defense, img, types }) 
     return (
         <div className={Styles.root}>
             <div className={Styles.infoWrap}>
-                <Heading tag="h5" classname={Styles.titleName}>
+                <Heading tag="h5" className={Styles.titleName}>
                     {name}
                 </Heading>
                 <div className={Styles.statWrap}>

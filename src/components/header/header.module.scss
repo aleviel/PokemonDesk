@@ -8,6 +8,7 @@
     background: $Third;
     box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
     position: relative;
+    flex-shrink: 0;
 }
 
 .wrap {
