@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { A } from 'hookrouter';
 import PokemonCard from '../../components/pokemonCard/pokemonCard';
 import Layout from '../../components/layout';
 import Heading from '../../components/heading';
 import Loader from '../../components/loader';
 import Error from '../../components/error';
 import useData from '../../hook/getData';
-
-import Styles from './pokedex.module.scss';
 import useDebounce from '../../hook/useDebounce';
 import Search from '../../components/search';
+
+import Styles from './pokedex.module.scss';
 
 interface IStats {
     hp: number;
@@ -79,14 +80,16 @@ const Pokedex = () => {
                 <div className={Styles.wrapper}>
                     {data &&
                         data.pokemons.map(({ name, stats, img, types, id }) => (
-                            <PokemonCard
-                                key={id}
-                                name={name}
-                                attack={stats.attack}
-                                defense={stats.defense}
-                                img={img}
-                                types={types}
-                            />
+                            <A key={id} href={`/pokedex/${id}`}>
+                                <PokemonCard
+                                    key={id}
+                                    name={name}
+                                    attack={stats.attack}
+                                    defense={stats.defense}
+                                    img={img}
+                                    types={types}
+                                />
+                            </A>
                         ))}
                 </div>
             </Layout>
