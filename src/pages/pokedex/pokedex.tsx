@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { A } from 'hookrouter';
 import PokemonCard from '../../components/pokemonCard/pokemonCard';
 import Layout from '../../components/layout';
-import Search from '../../components/search';
 import Heading from '../../components/heading';
 import Loader from '../../components/loader';
 import Error from '../../components/error';
-import request from '../../utils/request';
+import useData from '../../hook/getData';
+import useDebounce from '../../hook/useDebounce';
+import Search from '../../components/search';
+import { LinkEnum } from '../../routes';
 
 import Styles from './pokedex.module.scss';
 
@@ -18,7 +21,7 @@ interface IStats {
     speed: number;
 }
 
-interface IPokemon {
+export interface IPokemon {
     // eslint-disable-next-line camelcase
     name_clean: string;
     abilities: Array<string>;
@@ -44,28 +47,15 @@ interface IData {
     pokemons: IPokemon[];
 }
 
-const usePokemons = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    const [data, setData] = useState<IData>({} as IData);
-
-    useEffect(() => {
-        (async function getPokemonData() {
-            try {
-                const result = await request('getPokemons', 1005);
-                setData(result);
-            } catch (e) {
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        })();
-    }, []);
-    return { isError, isLoading, data };
-};
+interface IQuery {
+    name?: string;
+}
 
 const Pokedex = () => {
-    const { isLoading, isError, data } = usePokemons();
+    const [searchValue, setSearchValue] = useState('');
+    const [query, setQuery] = useState<IQuery>({});
+    const debounceValue = useDebounce(searchValue, 1000);
+    const { isLoading, isError, data } = useData<IData>('getPokemons', query, [debounceValue]);
 
     if (isLoading) {
         return <Loader />;
@@ -74,24 +64,34 @@ const Pokedex = () => {
         return <Error />;
     }
 
+    const handleOnChange = (valueFromInput: string) => {
+        setSearchValue(valueFromInput);
+        setQuery((prevState) => ({
+            ...prevState,
+            name: valueFromInput,
+        }));
+    };
     return (
         <>
             <Layout className={Styles.root}>
                 <Heading tag="h1" className={Styles.title}>
-                    {data.total} Pokemons for you to choose your favorite
+                    {data && data.total} Pokemons for you to choose your favorite
                 </Heading>
-                <Search />
+                <Search searchFunc={handleOnChange} value={searchValue} />
                 <div className={Styles.wrapper}>
-                    {data.pokemons.map(({ name, stats, img, types, id }) => (
-                        <PokemonCard
-                            key={id}
-                            name={name}
-                            attack={stats.attack}
-                            defense={stats.defense}
-                            img={img}
-                            types={types}
-                        />
-                    ))}
+                    {data &&
+                        data.pokemons.map(({ name, stats, img, types, id }) => (
+                            <A key={id} href={`${LinkEnum.POKEDEX}/${id}`}>
+                                <PokemonCard
+                                    key={id}
+                                    name={name}
+                                    attack={stats.attack}
+                                    defense={stats.defense}
+                                    img={img}
+                                    types={types}
+                                />
+                            </A>
+                        ))}
                 </div>
             </Layout>
         </>

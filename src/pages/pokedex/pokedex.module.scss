@@ -5,9 +5,16 @@
 }
 
 .input {
-    width: 1066px;
-    height: 200px;
-    color: red;
+    height: 53px;
+    width: 1088px;
+    outline: 0;
+    background: White;
+    box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 31px;
+    margin-bottom: 100px;
 }
 
 .wrapper {

@@ -7,7 +7,7 @@ interface IProps {
     className?: string | null;
 }
 
-const Layout: React.FC<IProps> = ({ children, className }) => {
+const Layout: React.FC<IProps> = ({ children, className = null }) => {
     return <div className={CN(Style.root, className)}>{children}</div>;
 };
 
