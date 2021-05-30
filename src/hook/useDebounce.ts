@@ -10,7 +10,7 @@ const useDebounce = (value: string, delay: number) => {
         return () => {
             clearInterval(timer);
         };
-    }, [value]);
+    }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return debounceValue;
 };

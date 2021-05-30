@@ -3,7 +3,7 @@ import HomePage from './pages/home';
 import Pokedex from './pages/pokedex';
 import EmptyPage from './pages/empty';
 import Pokemon from './pages/pokemon';
-import { IPokemon } from './pages/pokemon/pokemon';
+import { IPokemonID } from './pages/pokemon/pokemon';
 
 export enum LinkEnum {
     HOME = '/',
@@ -46,7 +46,7 @@ const SECOND_MENU: IGENERAL_MENU[] = [
     {
         title: 'Pokemon',
         link: LinkEnum.POKEMON,
-        component: ({ id }: IPokemon) => <Pokemon id={id} />,
+        component: ({ id }: IPokemonID) => <Pokemon id={id} />,
     },
 ];
 

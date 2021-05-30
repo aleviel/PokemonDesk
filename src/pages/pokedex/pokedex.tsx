@@ -8,6 +8,7 @@ import Error from '../../components/error';
 import useData from '../../hook/getData';
 import useDebounce from '../../hook/useDebounce';
 import Search from '../../components/search';
+import { LinkEnum } from '../../routes';
 
 import Styles from './pokedex.module.scss';
 
@@ -20,7 +21,7 @@ interface IStats {
     speed: number;
 }
 
-interface IPokemon {
+export interface IPokemon {
     // eslint-disable-next-line camelcase
     name_clean: string;
     abilities: Array<string>;
@@ -80,7 +81,7 @@ const Pokedex = () => {
                 <div className={Styles.wrapper}>
                     {data &&
                         data.pokemons.map(({ name, stats, img, types, id }) => (
-                            <A key={id} href={`/pokedex/${id}`}>
+                            <A key={id} href={`${LinkEnum.POKEDEX}/${id}`}>
                                 <PokemonCard
                                     key={id}
                                     name={name}
