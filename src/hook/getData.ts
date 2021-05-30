@@ -17,7 +17,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
                 setIsLoading(false);
             }
         })();
-    }, [deps]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, deps); // eslint-disable-line react-hooks/exhaustive-deps
     return { isError, isLoading, data };
 };
 export default useData;
