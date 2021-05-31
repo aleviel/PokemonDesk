@@ -13,4 +13,12 @@ describe('toCapitalizeFirstLetter', () => {
         const word = toCapitalizeFirstLetter('TeStWOrD');
         expect(word).toEqual('Testword');
     });
+    test('takes empty string => empty string', () => {
+        const word = toCapitalizeFirstLetter('');
+        expect(word).toEqual('');
+    });
+    test('takes nothing => empty string', () => {
+        const word = toCapitalizeFirstLetter();
+        expect(word).toEqual('');
+    });
 });
