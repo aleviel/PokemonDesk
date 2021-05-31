@@ -8,6 +8,7 @@ import Loader from '../../components/loader';
 import { IPokemon } from '../pokedex/pokedex';
 
 import Styles from './pokemon.module.scss';
+import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
 
 export interface IPokemonID {
     id: number | null;
@@ -46,7 +47,7 @@ const Pokemon: React.FC<IPokemonID> = ({ id }) => {
                 <div className={Styles.characteristics}>
                     <div className={Styles.header}>
                         <Heading className={Styles.name} tag="h4">
-                            {data && data.name}
+                            {toCapitalizeFirstLetter(data?.name)}
                         </Heading>
                         <Heading className={Styles.generation} tag="p">
                             Generation 1
