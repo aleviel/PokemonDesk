@@ -49,11 +49,12 @@ interface IData {
 
 interface IQuery {
     name?: string;
+    limit?: number;
 }
 
 const Pokedex = () => {
     const [searchValue, setSearchValue] = useState('');
-    const [query, setQuery] = useState<IQuery>({});
+    const [query, setQuery] = useState<IQuery>({ limit: 27 });
     const debounceValue = useDebounce(searchValue, 1000);
     const { isLoading, isError, data } = useData<IData>('getPokemons', query, [debounceValue]);
 

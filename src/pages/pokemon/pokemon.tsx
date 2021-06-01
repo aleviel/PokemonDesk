@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { navigate } from 'hookrouter';
 import CN from 'classnames';
 import Heading from '../../components/heading';
 import { LinkEnum } from '../../routes';
+import useData from '../../hook/getData';
+import Loader from '../../components/loader';
 import { IPokemon } from '../pokedex/pokedex';
 
 import Styles from './pokemon.module.scss';
+import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
 
 export interface IPokemonID {
     id: number | null;
 }
 
 const Pokemon: React.FC<IPokemonID> = ({ id }) => {
-    const [data, setData] = useState<IPokemon>();
+    const { data, isLoading } = useData<IPokemon>('getPokemon', { id });
 
-    useEffect(() => {
-        fetch(`http://zar.hosthot.ru/api/v1/pokemon/${id}`)
-            .then((res) => res.json())
-            .then((response) => {
-                setData(response);
-            });
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <div className={CN(Styles.root)}>
@@ -35,7 +34,7 @@ const Pokemon: React.FC<IPokemonID> = ({ id }) => {
                 </button>
                 <div className={Styles.imgBlock}>
                     <div className={Styles.imgWrapper}>
-                        <img src={data && data.img} alt="pokemon_img" />
+                        <img src={data?.img} alt="pokemon_img" />
                     </div>
                     <div className={Styles.labelWrapper}>
                         {data?.types.map((el) => (
@@ -48,7 +47,7 @@ const Pokemon: React.FC<IPokemonID> = ({ id }) => {
                 <div className={Styles.characteristics}>
                     <div className={Styles.header}>
                         <Heading className={Styles.name} tag="h4">
-                            {data && data.name}
+                            {toCapitalizeFirstLetter(data?.name)}
                         </Heading>
                         <Heading className={Styles.generation} tag="p">
                             Generation 1
@@ -73,7 +72,10 @@ const Pokemon: React.FC<IPokemonID> = ({ id }) => {
                             Experience <br />
                             <b>{data?.base_experience}</b>
                             <div className={Styles.lineWrapper}>
-                                <div className={Styles.line} style={{ width: `${data?.base_experience}%` }} />
+                                <div
+                                    className={Styles.line}
+                                    style={{ width: `${data && (data.base_experience / 500) * 100}%` }}
+                                />
                             </div>
                         </div>
                     </div>
