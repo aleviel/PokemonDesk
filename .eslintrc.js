@@ -13,6 +13,9 @@ module.exports = {
     },
     plugins: ['prettier', 'react', '@typescript-eslint'],
     rules: {
+        'react-hooks/exhaustive-deps': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': ['error'],
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': ['error'],
         'react/prop-types': 0,
