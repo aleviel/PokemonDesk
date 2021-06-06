@@ -5,10 +5,10 @@ import Heading from '../../components/heading';
 import { LinkEnum } from '../../routes';
 import useData from '../../hook/getData';
 import Loader from '../../components/loader';
-import { IPokemon } from '../pokedex/pokedex';
+import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
+import { IPokemon } from '../pokedex/interfaces';
 
 import Styles from './pokemon.module.scss';
-import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
 
 export interface IPokemonID {
     id: number | null;
